@@ -16,6 +16,29 @@ async function loadPeriodicTable() {
     }
 }
 
+function findCandidates(inputWord) {
+    let oneLetterSymbols = [];
+    let twoLetterSymbols = [];
+
+    for (let i = 0; i < inputWord.length; i++) {
+        //collect 1-letter candidates
+        if (
+            inputWord[i] in symbols &&
+            !oneLetterSymbols.includes(inputWord[i])
+        ) {
+            oneLetterSymbols.push(inputWord[i]);
+        }
+        //collect twoo-letter candidates
+        if (i <= inputWord.length - 2) {
+            let two = inputWord.slice(i, i + 2);
+            if (two in symbols && !twoLetterSymbols.includes(two)) {
+                twoLetterSymbols.push(two);
+            }
+        }
+    }
+    return [...twoLetterSymbols, ...oneLetterSymbols];
+}
+
 function check(inputWord) {
     //do we have an input?
     if (inputWord.length > 0) {
