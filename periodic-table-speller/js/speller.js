@@ -11,6 +11,9 @@ await loadPeriodicTable();
 
 async function loadPeriodicTable() {
     elements = await (await fetch('periodic-table.json')).json();
+    for (let element of elements) {
+        symbols[element.symbol.toLowerCase()] = element;
+    }
 }
 
 function check(inputWord) {
@@ -41,14 +44,7 @@ function check(inputWord) {
 }
 
 function lookup(elementSymbol) {
-    // TODO: return the element entry based on specified
-    // symbol (case-insensitive)
-
-    for (let element of elements) {
-        if (element.symbol.toLowerCase() === elementSymbol) {
-            return element;
-        }
-    }
+    return symbols[elementSymbol];
 
     //return {};
 }
