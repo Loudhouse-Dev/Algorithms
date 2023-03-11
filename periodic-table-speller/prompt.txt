@@ -1,0 +1,16 @@
+Prompt: 
+
+Design an algorithm that checks if specific words can be written by combining element symbols from the periodic table.
+
+------------------------
+Clarifying questions
+------------------------
+
+
+1) Does capitalization matter? Case-sensitive?
+  Answer - no
+
+2) Can we repeat elements? 
+  Answer - yes
+
+3) Do we need to optimize for using more symbols? Less symbols?
